@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>筋斗云</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background-color: rgba(0,0,0,0.8);
+        }
+        .box{
+            width: 800px;
+            height: 42px;
+            background: #fff url("images/wifi.png") right no-repeat;
+            margin: 200px auto;
+            position: relative;
+            border-radius: 8px;
+        }
+        ul{
+            list-style: none;
+            position: relative;      /*给定位是为了不占位置，不被span背景挡住*/
+        }
+        li{
+            float: left;
+            width: 83px;
+            height: 42px;
+            cursor: pointer;
+            font: 400 16px/42px "宋体";
+            text-align: center;
+        }
+        span{
+            width: 83px;
+            height: 42px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: url("images/cloud.gif") no-repeat;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            //需求1：鼠标放到哪个li上面，span对应移动到该li上。移开后，回到原位置。
+            //需求2：鼠标点击那个li记录该li标签，移开的时候span回到该记录的li标签上。
+            //步骤：
+            //1.老三步
+            //2.计数器
+            var box = document.getElementsByTagName("div")[0];
+            var liArr = box.children[1].children;
+            var span = box.children[0];
+            var liWidth = liArr[0].offsetWidth;
+            var count = 0;
+            for (var i=0;i<liArr.length;i++){
+                liArr[i].index = i;
+                liArr[i].onmouseover = function () {
+                    animate(span,this.index*liWidth);
+                };
+                liArr[i].onmouseout = function () {
+                    animate(span,count*liWidth);
+                };
+                liArr[i].onclick =function () {
+                    count = this.index;
+                    animate(span,count*liWidth);
+                };
+            }
+            function animate(ele,target) {
+                clearInterval(ele.timer);
+                ele.timer = setInterval(function () {
+                    var step = (target - ele.offsetLeft) / 10;
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                    ele.style.left = ele.offsetLeft + step + "px";
+                    if (Math.abs(target - ele.offsetLeft)<=Math.abs(step)){
+                        ele.style.left = target + "px";
+                        clearInterval(ele.timer);
+                    }
+                },10)
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div class="box">
+    <span></span>
+    <ul>
+        <li>首页新闻</li>
+        <li>活动策划</li>
+        <li>师资力量</li>
+        <li>企业文化</li>
+        <li>招聘信息</li>
+        <li>公司简介</li>
+        <li>上海校区</li>
+        <li>广州校区</li>
+    </ul>
+</div>
+</body>
+</html>

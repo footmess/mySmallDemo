@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 350px;
+            height: 350px;
+            margin:100px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+        .big {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: 0;
+            left: 360px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            display: none;
+        }
+        .mask {
+            width: 175px;
+            height: 175px;
+            background: rgba(255, 255, 0, 0.4);
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: move;
+            display: none;
+        }
+        .small {
+            position: relative;
+        }
+        img {
+            vertical-align: top;
+        }
+    </style>
+    <script src="animate.js"></script>
+    <script>
+        //需求：鼠标放到小盒子上，让大盒子里面的图片和我们同步等比例移动。
+        //技术点：onmouseenter==onmouseover 第一个不冒泡
+        //技术点：onmouseleave==onmouseout  第一个不冒泡
+        //步骤：
+        //1.鼠标放上去显示盒子，移开隐藏盒子。
+        //2.老三步和新五步（黄盒子跟随移动）
+        //3.右侧的大图片，等比例移动。
+        window.onload = function () {
+            var box = document.getElementsByClassName("box")[0];
+            // console.log(box);
+            var small = document.getElementsByClassName("small")[0];
+            console.log(small);
+            var mask = small.children[1];
+            var big = document.getElementsByClassName("big")[0];
+            var bImg = big.children[0];
+            small.onmouseenter = function () {
+                show(mask);
+                show(big);
+            };
+            small.onmouseleave = function () {
+                hide(mask);
+                hide(big);
+            };
+            small.onmousemove = function (event) {
+                event = event || window.event;
+                var pagex = event.pageX || scroll().left + event.clientX;
+                var pagey = event.pageY || scroll().top + event.clientY;
+                // console.log(small.offsetLeft)
+                var x_mouse = pagex - box.offsetLeft - mask.offsetWidth/2;
+                var y_mouse = pagey - box.offsetTop - mask.offsetHeight/2;
+                if (x_mouse<0){
+                    x_mouse =0;
+                } 
+                if (x_mouse>small.offsetWidth - mask.offsetWidth){
+                    x_mouse = small.offsetWidth - mask.offsetWidth;
+                }
+                if (y_mouse<0){
+                    y_mouse =0;
+                }
+                if (y_mouse>small.offsetHeight - mask.offsetHeight){
+                    y_mouse = small.offsetHeight - mask.offsetHeight;
+                }
+                mask.style.left = x_mouse + "px";
+                mask.style.top = y_mouse + "px";
+                var rate = bImg.offsetWidth / small.offsetWidth;
+                var x_rate = rate * x_mouse;
+                var y_rate = rate * y_mouse;
+                bImg .style.marginLeft = -x_rate + "px";
+                bImg.style.marginTop = -y_rate + "px";
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+<div class="box">
+    <div class="small">
+        <img src="images/001.jpg" alt=""/>
+        <div class="mask"></div>
+    </div>
+    <div class="big">
+        <img src="images/0001.jpg" alt=""/>
+    </div>
+</div>
+</body>
+</html>

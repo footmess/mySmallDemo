@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 322px;
+            position: fixed;
+            bottom:0;
+            right:0;
+        }
+        span{
+            position: absolute;
+            top:0;
+            right:0;
+            width:30px;
+            height: 20px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="../jquery1.0.0.1.js"></script>
+    <script>
+        //需求：下面的盒子高度变为0，然后大盒子的宽在变为0.
+        window.onload = function () {
+            var box = document.getElementsByTagName("div")[0];
+            var span = box.children[0];
+            var hd_t = box.children[1];
+            var hd_b = box.children[2];
+            span.onclick = function () {
+                animate(hd_b,{"height":0},function () {
+                    animate(box,{"width":0});
+                });
+            };
+;        }
+
+    </script>
+
+</head>
+<body>
+<div class="box">
+    <span id="guanbi"></span>
+    <div class="hd" id="t">
+        <img src="images/t.jpg" alt=""/>
+    </div>
+    <div class="bd" id="b">
+        <img src="images/b.jpg" alt=""/>
+    </div>
+</div>
+
+</body>
+</html>
