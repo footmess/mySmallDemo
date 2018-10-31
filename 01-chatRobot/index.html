@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body,html{
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            height: 100%;
+            width: 600px;
+            margin: 0 auto;
+            border: 1px solid red;
+            display: flex;
+            flex-direction: column;
+        }
+        .message{
+            width: 100%;
+            flex: 8;
+            background-color: yellowgreen;
+            overflow: scroll;
+        }
+        .inputBox{
+            width: 100%;
+            flex: 2;
+            background-color: burlywood;
+            display: flex;
+        }
+        .inputBox input:first-child{
+            height: 100%;
+            border: none;
+            padding: 0;
+            margin: 0;
+            flex: 8;
+            background-color: skyblue;
+        }
+        .inputBox input:last-child{
+            height: 100%;
+            border: none;
+            padding: 0;
+            margin: 0;
+            flex: 2;
+        }
+        .message div{
+            height: 30px;
+            line-height: 30px;
+            font-size: 25px;
+            border: 1px solid #0098fe;
+        }
+        .my{
+            text-align: left;
+            background-color: pink;
+            color: white;
+        }
+        .robot{
+            text-align: right;
+            background-color: yellow;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="message"></div>
+    <div class="inputBox">
+        <input type="text"id="mes" />
+        <input type="button"id="btn"value="发送" />
+    </div>
+</div>
+<script src="ajax_tool.js"></script>
+<script>
+    document.querySelector('#btn').onclick=function () {
+        var myVlue=document.querySelector('#mes').value;
+        var myDiv=document.createElement('div');
+        myDiv.innerHTML=myVlue;
+        // myVlue='';
+        myDiv.classList.add('my');
+        document.querySelector('.message').appendChild(myDiv);
+        ajax_tool_pro({
+            url:'chat_final.php',
+            data:'message='+myVlue,
+            method:'post',
+            success:function (responseValue) {
+                console.log(responseValue);
+                var robotBox=document.createElement('div');
+                robotBox.innerHTML=responseValue;
+                robotBox.classList.add('robot');
+                document.querySelector('.message').appendChild(robotBox);
+                // myVlue='';
+            }
+        })
+    }
+</script>
+</body>
+</html>
