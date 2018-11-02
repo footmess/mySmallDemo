@@ -17,11 +17,11 @@
 )     <br>
 &nbsp;&nbsp;12.[固定导航栏](http://htmlpreview.github.io/?https://github.com/footmess/mySmallDemo/blob/master/%E6%A1%88%E4%BE%8B-%E5%9B%BA%E5%AE%9A%E5%AF%BC%E8%88%AA%E6%A0%8F/index.html)    <br>
 ### 二.`Ajax案例`    <br>
-&nbsp;&nbsp;1.[聊天机器人]     <br>
-&nbsp;&nbsp;2.[瀑布流加载]     <br>
-&nbsp;&nbsp;3.[一次加载一张图片]    <br>
+&nbsp;&nbsp;1.[聊天机器人](http://htmlpreview.github.io/?https://github.com/footmess/mySmallDemo/blob/master/01-chatRobot/index.html)     <br>
+&nbsp;&nbsp;2.[瀑布流加载](http://htmlpreview.github.io/?https://github.com/footmess/mySmallDemo/blob/master/02-waterfall/index.html)     <br>
+&nbsp;&nbsp;3.[一次加载一张图片](http://htmlpreview.github.io/?https://github.com/footmess/mySmallDemo/blob/master/04-luowang/01-getMore%20%E6%A8%A1%E5%9D%97.html)    <br>
 
 ### 三.`综合项目`    <br>
-&nbsp;&nbsp;1.[仿京东主页]    <br>
-&nbsp;&nbsp;2.[京东移动]     <br>
-&nbsp;&nbsp;3.[bootstrap案例]    <br>
+&nbsp;&nbsp;1.[仿京东主页](https://htmlpreview.github.io/?https://github.com/footmess/mySmallDemo/blob/master/仿京东主页/index.html)    <br>
+&nbsp;&nbsp;2.[京东移动](http://htmlpreview.github.io/?https://github.com/footmess/mySmallDemo/blob/master/%E4%BA%AC%E4%B8%9C%E7%A7%BB%E5%8A%A8/index.html)     <br>
+&nbsp;&nbsp;3.[bootstrap案例](http://htmlpreview.github.io/?https://github.com/footmess/mySmallDemo/blob/master/bootstrap%E7%BB%83%E4%B9%A0/01.wjs.html)    <br>
