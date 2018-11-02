@@ -2,7 +2,7 @@
 
 ### 一.`小案例`   <br>
 &nbsp;&nbsp;1.[带有定时器的无缝轮播图](http://htmlpreview.github.io/?https://github.com/footmess/mySmallDemo/blob/master/%E5%B8%A6%E6%9C%89%E5%AE%9A%E6%97%B6%E5%99%A8%E7%9A%84%E6%97%A0%E7%BC%9D%E8%BD%AE%E6%92%AD%E5%9B%BE/index.html)    <br>
-&nbsp;&nbsp;2.[旋转轮播图]()     <br>
+&nbsp;&nbsp;2.[旋转轮播图](http://htmlpreview.github.io/?https://github.com/footmess/mySmallDemo/blob/master/%E6%A1%88%E4%BE%8B-%E6%97%8B%E8%BD%AC%E8%BD%AE%E6%92%AD%E5%9B%BE/index.html)     <br>
 &nbsp;&nbsp;3.[手风琴]()     <br>
 &nbsp;&nbsp;4.[用户注册页]     <br>
 &nbsp;&nbsp;5.[搜索页]     <br>
